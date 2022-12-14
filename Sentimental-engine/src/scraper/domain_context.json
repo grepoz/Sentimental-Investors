@@ -1,0 +1,16 @@
+{
+  "TSLA": "Tesla",
+  "INTC": "Intel",
+  "AMZN": "Amazon",
+  "GOOGL": "Google",
+  "NFLX": "Netflix",
+  "SPOT": "Spotify",
+  "AAPL": "Apple",
+  "META": "Meta Platforms",
+  "ETSY": "Etsy",
+  "BTC-USD": "Bitcoin",
+  "LTC-USD": "Litecoin",
+  "NMC-USD": "Namecoin",
+  "DOGE-USD": "Dogecoin",
+  "ETH-USD": "Ethereum"
+}

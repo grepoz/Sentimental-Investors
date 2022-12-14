@@ -1,0 +1,11 @@
+index,Sentence,Expected result,VADER,Flair
+1,"VADER is smart, handsome, and funny!",positive,0.844,POS: 1.0
+2,"VADER is not smart, handsome, nor funny.",negative,-0.742,NEG: 1.0
+3,The book was good.,positive,0.44,POS: 0.567
+4,At least it isn't a horrible book.,neutral,0.431,POS: 0.807
+5,"The plot was good, but the characters are uncompelling and the dialog is not great.",neutral (mixed),-0.704,NEG: 0.998
+6,Not bad at all,neutral,0.431,NEG: 0.759
+7,"$AAPL Attempting a breakout to the upside, now green on the day!",positive,0.0,NEG: 0.99
+8,"Apple’s, $AAPL, most in-demand iPhones will fall short of earlier shipment estimates by 6 million units",negative,0.0,NEG: 0.953
+9,"$AAPL Threatening a red to green move this morning, keep an eye on this descending triangle setup",positive,-0.527,NEG: 1.0
+10,"Most Traded Contracts $AAPL November $150 Call, $TSLA November $200 Call, $AMZN January 2023 $140 Put",neutral,0.0,NEG: 0.913
