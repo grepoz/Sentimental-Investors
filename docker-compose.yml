@@ -1,0 +1,58 @@
+version: '3.7'
+
+services:
+  frontend:
+    container_name: frontend
+    image: frontend:latest
+    networks:
+      - sentimental-investors-net
+    ports:
+      - "3000:3000"
+    build:
+      context: ../Frontend
+      dockerfile: Dockerfile
+    environment:
+      - REACT_APP_DOCKERENV=true
+      - NODE_OPTIONS=--openssl-legacy-provider
+
+  rnn:
+    container_name: rnn
+    image: rnn:latest
+    networks:
+      - sentimental-investors-net
+    ports:
+      - "4000:4000"
+    build:
+      context: ../RNN
+      dockerfile: Dockerfile
+    volumes:
+      - sentimental-data:/dataset:rw
+      - sentimental-models:/models:rw
+    environment:
+      - WANDB_API_KEY=92f393ce6da7a9c63238cc321c5475293fec22d4
+      - RNN_APP_DOCKERENV=true
+#      - FLASK_APP=src/main.py
+#    command: python3 -m flask run --host=127.0.0.1:4000
+
+  engine:
+    container_name: engine
+    image: engine:latest
+    networks:
+      - sentimental-investors-net
+    ports:
+      - "5000:5000"
+    build:
+      context: ../Sentimental-engine
+      dockerfile: Dockerfile
+    volumes:
+      - sentimental-data:/src/data:rw
+#    environment:
+#      - FLASK_APP=main.py
+#    command: python3 -m flask --app src/main run --host=127.0.0.1:5000
+
+networks:
+  sentimental-investors-net:
+
+volumes:
+  sentimental-data:
+  sentimental-models:

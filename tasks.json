@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+        "label": "npm build",
+        "command": "npm",
+        "type": "shell",
+        "args": [
+            "run",
+            "build",
+            "--prefix",
+            "frontend"]
+    },
+    {
+      "label": "Sentimental investors project down",
+      "osx": {
+          "command": "docker-compose"
+      },
+      "linux": {
+          "command": "docker-compose"
+      },
+      "windows": {
+          "command": "docker-compose.exe"
+      },
+      "args": [
+        "-f",
+        ".docker/docker-compose.yml",
+        "down",
+        "--volumes"
+      ]
+    },
+    {
+      "label": "Sentimental investors project up",
+      "osx": {
+          "command": "docker-compose"
+      },
+      "linux": {
+          "command": "docker-compose"
+      },
+      "windows": {
+          "command": "docker-compose.exe"
+      },
+      "args": [
+        "-f",
+        ".docker/docker-compose.yml",
+        "up",
+        "--abort-on-container-exit",
+        "--force-recreate",
+        "--build",
+        "--renew-anon-volumes",
+        "--timeout",
+        "0"
+      ],
+      "dependsOn": "publish",
+      "problemMatcher": []
+    }
+  ]
+}
